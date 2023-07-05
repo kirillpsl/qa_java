@@ -2,7 +2,7 @@ package com.example;
 
 import java.util.List;
 
-public class Lion {
+public class Lion extends Animal implements Kittens{ //добавил extends Animal implements Kittens
 
     boolean hasMane;
 
@@ -16,10 +16,17 @@ public class Lion {
         }
     }
 
-    Feline feline = new Feline();
+ //   Feline feline = new Feline(); //создали объект Feline (Кошачий) //убираем зависимость от feline
 
+    @Override //переопредилил из интерфейса Kittens
     public int getKittens() {
-        return feline.getKittens();
+        //return feline.getKittens();
+        return getKittens(1);
+    }
+
+    @Override //переопредилил из интерфейса Kittens
+    public int getKittens(int kittensCount) {
+        return kittensCount;
     }
 
     public boolean doesHaveMane() {
@@ -27,6 +34,7 @@ public class Lion {
     }
 
     public List<String> getFood() throws Exception {
-        return feline.getFood("Хищник");
+        // return feline.getFood("Хищник"); //убираем зависимость от feline
+        return getFood("Хищник"); //обратился к методу родителя - Animal
     }
 }
