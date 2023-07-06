@@ -43,7 +43,5 @@ public class CatTest {
 
         //Assert
         Assert.assertEquals("Food не соответствует", expected, actual);
-        System.out.println(actual);
-
     }
 }
